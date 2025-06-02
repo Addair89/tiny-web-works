@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   Monitor, 
   Smartphone, 
@@ -25,15 +25,37 @@ const Index = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to the email service
-    toast({
-      title: "Message sent!",
-      description: "I'll get back to you within one business day.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message sent successfully!",
+        description: "I'll get back to you within one business day.",
+      });
+      
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error: any) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again or email me directly at addairjared@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToContact = () => {
@@ -232,7 +254,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Contact Form Section - Updated with email functionality */}
       <section id="contact" className="px-6 py-16 bg-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-6">
@@ -253,6 +275,7 @@ const Index = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
+                    disabled={isSubmitting}
                     className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
@@ -265,6 +288,7 @@ const Index = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
+                    disabled={isSubmitting}
                     className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
@@ -276,6 +300,7 @@ const Index = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
+                    disabled={isSubmitting}
                     rows={5}
                     className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
                   />
@@ -283,9 +308,10 @@ const Index = () => {
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
                 >
-                  Let's Talk
+                  {isSubmitting ? "Sending..." : "Let's Talk"}
                 </Button>
               </form>
             </CardContent>
