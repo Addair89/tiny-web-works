@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Monitor, Smartphone, Search, Mail, CheckCircle, MessageCircle, Package, Wrench, Rocket, ArrowRight, Star } from "lucide-react";
+import { Monitor, Smartphone, Search, Mail, CheckCircle, MessageCircle, Package, Wrench, Rocket, ArrowRight, Star, Phone } from "lucide-react";
+
 const Index = () => {
   const {
     toast
@@ -30,7 +31,7 @@ const Index = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          access_key: '21550c4a-4690-405a-ba14-a66870a9ff4e',
+          access_key: '85d40ae8-f4b3-48da-8884-a582930f3a82',
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -55,7 +56,7 @@ const Index = () => {
       console.error('Error sending email:', error);
       toast({
         title: "Error sending message",
-        description: "Please try again or email me directly at addairjared@gmail.com",
+        description: "Please try again or email me directly at addairdesign.com",
         variant: "destructive"
       });
     } finally {
@@ -104,8 +105,6 @@ const Index = () => {
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
-            
           </div>
         </div>
       </section>
@@ -123,29 +122,35 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[{
-            icon: Monitor,
-            title: "Custom Design",
-            description: "Every site is built from scratch to match your brand — no cookie-cutter templates.",
-            color: "from-blue-500 to-cyan-500"
-          }, {
-            icon: Smartphone,
-            title: "Mobile-Friendly",
-            description: "Your site will look great on phones, tablets, and desktops.",
-            color: "from-purple-500 to-pink-500"
-          }, {
-            icon: Search,
-            title: "SEO Optimized",
-            description: "Optimized for search engines so local customers can find you.",
-            color: "from-green-500 to-emerald-500"
-          }, {
-            icon: Mail,
-            title: "Contact Form",
-            description: "Make it easy for customers to reach you with a clean, functional form.",
-            color: "from-orange-500 to-red-500"
-          }].map((item, index) => <Card key={item.title} className={`group text-center p-8 border-0 bg-white/80 backdrop-blur-sm hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            {[
+              {
+                icon: Monitor,
+                title: "Custom Design",
+                description: "Every site is built from scratch to match your brand — no cookie-cutter templates.",
+                color: "from-blue-500 to-cyan-500"
+              },
+              {
+                icon: Smartphone,
+                title: "Mobile-Friendly",
+                description: "Your site will look great on phones, tablets, and desktops.",
+                color: "from-purple-500 to-pink-500"
+              },
+              {
+                icon: Search,
+                title: "SEO Optimized",
+                description: "Optimized for search engines so local customers can find you.",
+                color: "from-green-500 to-emerald-500"
+              },
+              {
+                icon: Mail,
+                title: "Contact Form",
+                description: "Make it easy for customers to reach you with a clean, functional form.",
+                color: "from-orange-500 to-red-500"
+              }
+            ].map((item, index) => (
+              <Card key={item.title} className={`group text-center p-8 border-0 bg-white/80 backdrop-blur-sm hover:bg-white/90 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                 <CardContent className="pt-6">
                   <div className={`w-20 h-20 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
                     <item.icon className="w-10 h-10 text-white" />
@@ -153,7 +158,8 @@ const Index = () => {
                   <h3 className="font-heading text-xl font-semibold text-slate-800 mb-4">{item.title}</h3>
                   <p className="text-slate-600 leading-relaxed">{item.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -171,30 +177,41 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[{
-            title: "1 Page Website",
-            price: "$100",
-            description: "Perfect for getting started online",
-            popular: false
-          }, {
-            title: "5 Page Website",
-            price: "$200",
-            description: "Complete online presence",
-            popular: true
-          }, {
-            title: "Hosting & Maintenance",
-            price: "$15",
-            period: "/month",
-            description: "Optional ongoing support",
-            popular: false
-          }].map((plan, index) => <Card key={plan.title} className={`relative p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${plan.popular ? 'border-2 border-blue-500 bg-gradient-to-br from-blue-50 to-white shadow-xl scale-105' : 'border border-slate-200 bg-white/80 backdrop-blur-sm hover:bg-white/90'} animate-fade-in-up`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                {plan.popular && <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            {[
+              {
+                title: "1 Page Website",
+                price: "$100",
+                description: "Perfect for getting started online",
+                popular: false
+              },
+              {
+                title: "5 Page Website",
+                price: "$200",
+                description: "Complete online presence",
+                popular: true
+              },
+              {
+                title: "Hosting & Maintenance",
+                price: "$15",
+                period: "/month",
+                description: "Optional ongoing support",
+                popular: false
+              }
+            ].map((plan, index) => (
+              <Card key={plan.title} className={`relative p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
+                plan.popular 
+                  ? 'border-2 border-blue-500 bg-gradient-to-br from-blue-50 to-white shadow-xl scale-105' 
+                  : 'border border-slate-200 bg-white/80 backdrop-blur-sm hover:bg-white/90'
+              } animate-fade-in-up`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                       Most Popular
                     </span>
-                  </div>}
+                  </div>
+                )}
                 <CardContent className="pt-0">
                   <h3 className="font-heading text-2xl font-bold text-slate-800 mb-4">{plan.title}</h3>
                   <div className="mb-6">
@@ -203,7 +220,8 @@ const Index = () => {
                   </div>
                   <p className="text-slate-600 text-lg">{plan.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
           
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-blue-100">
@@ -228,29 +246,35 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[{
-            icon: MessageCircle,
-            title: "We Chat",
-            description: "Tell me a little about your business and goals.",
-            step: "01"
-          }, {
-            icon: Package,
-            title: "Choose a Package",
-            description: "Pick between a one-page or five-page site — simple, no upselling.",
-            step: "02"
-          }, {
-            icon: Wrench,
-            title: "I Build It",
-            description: "I'll design, develop, and test the site with your feedback.",
-            step: "03"
-          }, {
-            icon: Rocket,
-            title: "You Launch",
-            description: "Host it yourself, or let me take care of it for a small monthly fee.",
-            step: "04"
-          }].map((step, index) => <div key={step.title} className={`relative text-center group animate-fade-in-up`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            {[
+              {
+                icon: MessageCircle,
+                title: "We Chat",
+                description: "Tell me a little about your business and goals.",
+                step: "01"
+              },
+              {
+                icon: Package,
+                title: "Choose a Package",
+                description: "Pick between a one-page or five-page site — simple, no upselling.",
+                step: "02"
+              },
+              {
+                icon: Wrench,
+                title: "I Build It",
+                description: "I'll design, develop, and test the site with your feedback.",
+                step: "03"
+              },
+              {
+                icon: Rocket,
+                title: "You Launch",
+                description: "Host it yourself, or let me take care of it for a small monthly fee.",
+                step: "04"
+              }
+            ].map((step, index) => (
+              <div key={step.title} className={`relative text-center group animate-fade-in-up`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                 <div className="relative">
                   <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
                     {step.step}
@@ -262,7 +286,8 @@ const Index = () => {
                 <h3 className="font-heading text-xl font-semibold text-slate-800 mb-4">{step.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{step.description}</p>
                 {index < 3 && <div className="hidden lg:block absolute top-12 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300"></div>}
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -280,20 +305,26 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[{
-            text: "Loved working with this team! The process was simple and the result looks amazing. Our website has helped us get so many new customers.",
-            author: "Sarah M.",
-            business: "Local Bakery Owner"
-          }, {
-            text: "Fast, friendly, and affordable. The website perfectly captures our brand and works flawlessly on all devices. Highly recommend!",
-            author: "Mike R.",
-            business: "Small Business Owner"
-          }].map((testimonial, index) => <Card key={index} className={`p-8 bg-white/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in-up`} style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            {[
+              {
+                text: "Loved working with this team! The process was simple and the result looks amazing. Our website has helped us get so many new customers.",
+                author: "Sarah M.",
+                business: "Local Bakery Owner"
+              },
+              {
+                text: "Fast, friendly, and affordable. The website perfectly captures our brand and works flawlessly on all devices. Highly recommend!",
+                author: "Mike R.",
+                business: "Small Business Owner"
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className={`p-8 bg-white/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in-up`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                 <CardContent className="pt-0">
                   <div className="flex items-center mb-6">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    ))}
                   </div>
                   <p className="text-slate-700 mb-6 text-lg leading-relaxed italic">
                     "{testimonial.text}"
@@ -303,7 +334,8 @@ const Index = () => {
                     <p className="text-slate-500">{testimonial.business}</p>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -326,34 +358,58 @@ const Index = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="name" className="text-slate-700 font-medium text-lg">Name</Label>
-                    <Input id="name" type="text" value={formData.name} onChange={e => setFormData({
-                    ...formData,
-                    name: e.target.value
-                  })} required disabled={isSubmitting} className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500 h-12 text-lg rounded-xl" />
+                    <Input 
+                      id="name" 
+                      type="text" 
+                      value={formData.name} 
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+                      required 
+                      disabled={isSubmitting} 
+                      className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500 h-12 text-lg rounded-xl" 
+                    />
                   </div>
                   
                   <div>
                     <Label htmlFor="email" className="text-slate-700 font-medium text-lg">Email</Label>
-                    <Input id="email" type="email" value={formData.email} onChange={e => setFormData({
-                    ...formData,
-                    email: e.target.value
-                  })} required disabled={isSubmitting} className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500 h-12 text-lg rounded-xl" />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      value={formData.email} 
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+                      required 
+                      disabled={isSubmitting} 
+                      className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500 h-12 text-lg rounded-xl" 
+                    />
                   </div>
                 </div>
                 
                 <div>
                   <Label htmlFor="message" className="text-slate-700 font-medium text-lg">Message</Label>
-                  <Textarea id="message" value={formData.message} onChange={e => setFormData({
-                  ...formData,
-                  message: e.target.value
-                })} required disabled={isSubmitting} rows={5} className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500 text-lg rounded-xl" placeholder="Tell me about your business and what kind of website you need..." />
+                  <Textarea 
+                    id="message" 
+                    value={formData.message} 
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
+                    required 
+                    disabled={isSubmitting} 
+                    rows={5} 
+                    className="mt-2 border-slate-300 focus:border-blue-500 focus:ring-blue-500 text-lg rounded-xl" 
+                    placeholder="Tell me about your business and what kind of website you need..." 
+                  />
                 </div>
                 
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 font-medium">
-                  {isSubmitting ? <div className="flex items-center gap-2">
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 font-medium"
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center gap-2">
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                       Sending...
-                    </div> : "Let's Talk 🚀"}
+                    </div>
+                  ) : (
+                    "Let's Talk 🚀"
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -368,13 +424,15 @@ const Index = () => {
             Your Web Design Partner
           </h3>
           <p className="text-slate-300 mb-8 text-lg">
-            <a href="mailto:addairjared@gmail.com" className="hover:text-blue-400 transition-colors duration-300 font-medium">
-              addairjared@gmail.com
+            <a href="mailto:addairdesign.com" className="hover:text-blue-400 transition-colors duration-300 font-medium">
+              addairdesign.com
             </a>
           </p>
-          <div className="flex justify-center space-x-8 mb-8">
-            <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-lg">GitHub</a>
-            <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-lg">LinkedIn</a>
+          <div className="flex justify-center items-center mb-8">
+            <a href="tel:928-310-6868" className="flex items-center gap-2 text-slate-300 hover:text-blue-400 transition-colors duration-300 text-lg">
+              <Phone className="w-5 h-5" />
+              928-310-6868
+            </a>
           </div>
           <div className="border-t border-slate-700 pt-8">
             <p className="text-slate-400">
@@ -385,4 +443,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
