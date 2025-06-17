@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { 
   Monitor, 
   Smartphone, 
@@ -40,20 +39,32 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '21550c4a-4690-405a-ba14-a66870a9ff4e',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: 'New Contact Form Submission from Website'
+        })
       });
 
-      if (error) {
-        throw error;
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "I'll get back to you within one business day.",
+        });
+        
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(result.message || 'Failed to send message');
       }
-
-      toast({
-        title: "Message sent successfully!",
-        description: "I'll get back to you within one business day.",
-      });
-      
-      setFormData({ name: "", email: "", message: "" });
     } catch (error: any) {
       console.error('Error sending email:', error);
       toast({
