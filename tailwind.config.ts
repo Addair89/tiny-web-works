@@ -72,6 +72,29 @@ export default {
 					400: '#fb923c',
 					500: '#f97316',
 					600: '#ea580c',
+				},
+				teal: {
+					50: '#f0fdfa',
+					400: '#2dd4bf',
+					500: '#14b8a6',
+					600: '#0d9488',
+				},
+				emerald: {
+					50: '#ecfdf5',
+					400: '#34d399',
+					500: '#10b981',
+					600: '#059669',
+				},
+				coral: {
+					400: '#ff7875',
+					500: '#ff6b6b',
+					600: '#ff5252',
+				},
+				amber: {
+					50: '#fffbeb',
+					400: '#fbbf24',
+					500: '#f59e0b',
+					600: '#d97706',
 				}
 			},
 			borderRadius: {
@@ -129,6 +152,30 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-20px) rotate(180deg)'
+					}
+				},
+				'float-reverse': {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(20px) rotate(-180deg)'
+					}
+				},
+				'spin-slow': {
+					from: {
+						transform: 'rotate(0deg)'
+					},
+					to: {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
@@ -137,7 +184,16 @@ export default {
 				'fade-in-up': 'fade-in-up 0.6s ease-out',
 				'fade-in': 'fade-in 0.8s ease-out',
 				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'float-reverse': 'float-reverse 8s ease-in-out infinite',
+				'spin-slow': 'spin-slow 10s linear infinite'
+			},
+			clipPath: {
+				'wave': 'polygon(0 0, 100% 0, 100% 85%, 0 100%)',
+				'wave-reverse': 'polygon(0 15%, 100% 0, 100% 100%, 0 100%)',
+				'triangle': 'polygon(50% 0%, 0% 100%, 100% 100%)',
+				'diamond': 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
 			}
 		}
 	},
