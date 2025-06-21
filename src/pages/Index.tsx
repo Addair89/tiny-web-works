@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Monitor, Smartphone, Search, Mail, CheckCircle, MessageCircle, Package, Wrench, Rocket, ArrowRight, Star, Phone } from "lucide-react";
+import { Monitor, Smartphone, Search, Mail, CheckCircle, MessageCircle, Package, Wrench, Rocket, ArrowRight, Star, Phone, Download } from "lucide-react";
 
 const Index = () => {
   const { toast } = useToast();
@@ -82,7 +83,7 @@ const Index = () => {
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-blue-100/80 backdrop-blur-sm text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-200/50">
             <Star className="w-4 h-4" />
-            Trusted by Small Businesses
+            No Monthly Fees • You Own The Code
           </div>
           
           <h1 className="font-heading text-5xl md:text-7xl font-bold text-slate-800 mb-8 leading-tight">
@@ -95,7 +96,7 @@ const Index = () => {
           
           <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-4xl mx-auto leading-relaxed">
             Mobile-friendly, SEO-optimized, and ready to launch — all at a price that works for you.
-            <span className="block mt-2 text-lg text-slate-500">No hidden fees.</span>
+            <span className="block mt-2 text-lg text-slate-500">No hidden fees. No upselling. You get the complete source code.</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -119,7 +120,7 @@ const Index = () => {
               What You Get
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Everything you need for a professional online presence
+              Everything you need for a professional online presence — yours to own forever
             </p>
           </div>
           
@@ -141,9 +142,9 @@ const Index = () => {
                 description: "Optimized for search engines so local customers can find you."
               },
               {
-                icon: Mail,
-                title: "Contact Form",
-                description: "Make it easy for customers to reach you with a clean, functional form."
+                icon: Download,
+                title: "You Own The Code",
+                description: "Get the complete source code in a zip file — no ongoing dependencies on me."
               }
             ].map((item, index) => (
               <Card 
@@ -172,7 +173,7 @@ const Index = () => {
               Simple, Transparent Pricing
             </h2>
             <p className="text-xl text-slate-300">
-              No hidden fees. No surprises. Just honest pricing.
+              No hidden fees. No upselling. No monthly payments. Just honest, one-time pricing.
             </p>
           </div>
           
@@ -242,7 +243,7 @@ const Index = () => {
               How It Works
             </h2>
             <p className="text-xl text-slate-600">
-              Simple process, professional results
+              Simple process, professional results — no upselling, ever
             </p>
           </div>
           
@@ -251,25 +252,25 @@ const Index = () => {
               {
                 icon: MessageCircle,
                 title: "We Chat",
-                description: "Tell me a little about your business and goals.",
+                description: "Tell me about your business and goals — no sales pitch, just understanding what you need.",
                 step: "01"
               },
               {
                 icon: Package,
-                title: "Choose a Package",
-                description: "Pick between a one-page or five-page site — simple, no upselling.",
+                title: "Choose Your Package",
+                description: "Pick between a 1-page or 5-page site. That's it — no add-ons or hidden costs.",
                 step: "02"
               },
               {
                 icon: Wrench,
                 title: "I Build It",
-                description: "I'll design, develop, and test the site with your feedback.",
+                description: "I design and develop your custom site with your feedback. You'll see progress every step of the way.",
                 step: "03"
               },
               {
                 icon: Rocket,
-                title: "You Launch",
-                description: "Host it yourself, or let me take care of it for a small monthly fee.",
+                title: "You Get Everything",
+                description: "Receive the complete website files in a zip folder — it's yours forever, no strings attached.",
                 step: "04"
               }
             ].map((step, index) => (
@@ -353,7 +354,7 @@ const Index = () => {
               Let's Get Started
             </h2>
             <p className="text-xl text-slate-300">
-              Ready to get started or have a question? Send me a message — I'll get back to you within one business day.
+              Ready to get your website? Send me a message — I'll get back to you within one business day with a clear quote and timeline.
             </p>
           </div>
           
@@ -398,7 +399,7 @@ const Index = () => {
                     disabled={isSubmitting} 
                     rows={5} 
                     className="mt-2 bg-slate-700 border-slate-600 text-white focus:border-blue-500 focus:ring-blue-500 text-lg rounded-xl" 
-                    placeholder="Tell me about your business and what kind of website you need..." 
+                    placeholder="Tell me about your business and whether you need a 1-page or 5-page website..." 
                   />
                 </div>
                 
