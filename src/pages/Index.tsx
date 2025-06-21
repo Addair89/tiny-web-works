@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -68,6 +67,10 @@ const Index = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToPricing = () => {
+    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -107,6 +110,14 @@ const Index = () => {
             >
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button 
+              onClick={scrollToPricing} 
+              variant="outline"
+              size="lg" 
+              className="group border-2 border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600 px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              View Pricing
             </Button>
           </div>
         </div>
@@ -166,7 +177,7 @@ const Index = () => {
       </section>
 
       {/* Pricing Section - Dark Theme */}
-      <section className="px-6 py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section id="pricing" className="px-6 py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-5xl mx-auto text-center">
           <div className="mb-16">
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
