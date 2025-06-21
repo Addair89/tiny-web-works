@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -177,7 +176,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
             {[
               {
                 title: "1 Page Website",
@@ -190,13 +189,6 @@ const Index = () => {
                 price: "$200",
                 description: "Complete online presence",
                 popular: true
-              },
-              {
-                title: "Hosting & Maintenance",
-                price: "$15",
-                period: "/month",
-                description: "Optional ongoing support",
-                popular: false
               }
             ].map((plan, index) => (
               <Card 
@@ -219,7 +211,6 @@ const Index = () => {
                   <h3 className="font-heading text-2xl font-bold text-white mb-4">{plan.title}</h3>
                   <div className="mb-6">
                     <span className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">{plan.price}</span>
-                    {plan.period && <span className="text-xl text-slate-300">{plan.period}</span>}
                   </div>
                   <p className="text-slate-300 text-lg">{plan.description}</p>
                 </CardContent>
@@ -227,10 +218,17 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-slate-600">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-slate-600 mb-8">
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Every site includes custom design, SEO optimization, mobile responsiveness, and a contact form.
               <span className="block mt-2 text-blue-400 font-medium">Launch in 7-14 days or your money back!</span>
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-blue-500/20">
+            <h3 className="text-2xl font-bold text-white mb-4">Launch Support Included</h3>
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Don't worry about the technical stuff! I'll provide step-by-step instructions for launching your site and offer a guided walkthrough if needed. You'll have your website live and ready for customers in no time.
             </p>
           </div>
         </div>
