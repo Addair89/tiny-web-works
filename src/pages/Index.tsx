@@ -6,8 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Monitor, Smartphone, Search, Mail, CheckCircle, MessageCircle, Package, Wrench, Rocket, ArrowRight, Star, Phone, Download } from "lucide-react";
-import evergreenImage from "@/assets/portfolio-evergreen-landscapes.jpg";
-import greenshieldImage from "@/assets/portfolio-greenshield-pest.jpg";
 
 const Index = () => {
   const { toast } = useToast();
@@ -324,14 +322,14 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                image: evergreenImage,
+                image: "/lovable-uploads/6d17f8a0-bdd5-4a05-8c86-88cce8f2370b.png",
                 title: "Evergreen Landscapes",
                 description: "Premium landscaping and garden design website with custom hero section and service showcase",
                 url: "https://earthly-visions-site.lovable.app/",
                 category: "Landscaping Business"
               },
               {
-                image: greenshieldImage,
+                image: "/lovable-uploads/947c1b4e-094b-413e-b5f7-1e189c1e4fd6.png",
                 title: "GreenShield Pest Control",
                 description: "Professional pest control website featuring service areas, testimonials, and instant quote requests",
                 url: "https://pest-pro-spotlight.lovable.app/",
