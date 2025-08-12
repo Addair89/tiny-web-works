@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Monitor, Smartphone, Search, Mail, CheckCircle, MessageCircle, Package, Wrench, Rocket, ArrowRight, Star, Phone, Download } from "lucide-react";
+import evergreenImage from "@/assets/portfolio-evergreen-landscapes.jpg";
+import greenshieldImage from "@/assets/portfolio-greenshield-pest.jpg";
 
 const Index = () => {
   const { toast } = useToast();
@@ -307,49 +309,67 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Portfolio Section */}
       <section className="px-6 py-20 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              What Clients Say
+              Recent Projects
             </h2>
             <p className="text-xl text-slate-600">
-              Real feedback from real businesses
+              Beautiful, functional websites that drive business results
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                text: "Loved working with this team! The process was simple and the result looks amazing. Our website has helped us get so many new customers.",
-                author: "Sarah M.",
-                business: "Local Bakery Owner"
+                image: evergreenImage,
+                title: "Evergreen Landscapes",
+                description: "Premium landscaping and garden design website with custom hero section and service showcase",
+                url: "https://earthly-visions-site.lovable.app/",
+                category: "Landscaping Business"
               },
               {
-                text: "Fast, friendly, and affordable. The website perfectly captures our brand and works flawlessly on all devices. Highly recommend!",
-                author: "Mike R.",
-                business: "Small Business Owner"
+                image: greenshieldImage,
+                title: "GreenShield Pest Control",
+                description: "Professional pest control website featuring service areas, testimonials, and instant quote requests",
+                url: "https://pest-pro-spotlight.lovable.app/",
+                category: "Pest Control Services"
               }
-            ].map((testimonial, index) => (
+            ].map((project, index) => (
               <Card 
                 key={index} 
-                className={`p-8 bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 animate-fade-in-up`}
+                className={`group overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in-up rounded-2xl`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="pt-0">
-                  <div className="flex items-center mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
-                    ))}
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-slate-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-white transition-colors"
+                    >
+                      View Live Site
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
                   </div>
-                  <p className="text-slate-700 mb-6 text-lg leading-relaxed italic">
-                    "{testimonial.text}"
-                  </p>
-                  <div>
-                    <p className="text-slate-800 font-semibold">{testimonial.author}</p>
-                    <p className="text-slate-500">{testimonial.business}</p>
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+                      {project.category}
+                    </span>
                   </div>
+                  <h3 className="font-heading text-xl font-bold text-slate-800 mb-3">{project.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{project.description}</p>
                 </CardContent>
               </Card>
             ))}
