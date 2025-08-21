@@ -198,7 +198,7 @@ const Index = () => {
               },
               {
                 title: "5 Page Website",
-                price: "$200",
+                price: "$250",
                 description: "Complete online presence",
                 popular: true
               }
