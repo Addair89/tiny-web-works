@@ -227,14 +227,18 @@ const Index = () => {
             {[
               {
                 title: "1 Page Website",
-                price: "$100",
+                price: "$150",
                 description: "Perfect for getting started online",
+                hours: "2 hours of edits included",
+                extraHourRate: "$30/hr",
                 popular: false,
               },
               {
                 title: "5 Page Website",
-                price: "$250",
+                price: "$375",
                 description: "Complete online presence",
+                hours: "5 hours of edits included",
+                extraHourRate: "$30/hr",
                 popular: true,
               },
             ].map((plan, index) => (
@@ -263,6 +267,17 @@ const Index = () => {
                       {plan.price}
                     </span>
                   </div>
+                  <div className="mb-6">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                      {plan.hours}
+                    </span>
+                  </div>
+
+                  <div className="mb-6">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                      {plan.extraHourRate} for additional hours
+                    </span>
+                  </div>
                   <p className="text-slate-300 text-lg">{plan.description}</p>
                 </CardContent>
               </Card>
@@ -274,7 +289,10 @@ const Index = () => {
               Every site includes custom design, SEO optimization, mobile
               responsiveness, and a contact form.
               <span className="block mt-2 text-blue-400 font-medium">
-                Launch in 7-14 days or your money back!
+                Launch your site within 7 day!
+              </span>
+              <span className="block mt-2 text-blue-400 font-medium">
+                Additional SEO work avaliable upon request
               </span>
             </p>
           </div>
@@ -381,7 +399,7 @@ const Index = () => {
                 title: "See Jane Cook",
                 description:
                   "Experience culinary excellence with Chef Jane, accredited private chef specializing in intimate dinners, exclusive events, and custom seasonal menus.",
-                url: "https://seejanecook.com",
+                url: "https://seejanecook.com/",
                 category: "Personal ChefServices",
               },
               {
